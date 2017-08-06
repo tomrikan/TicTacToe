@@ -10,20 +10,23 @@ package tictactoe;
  * @author tomi
  */
 public class MainGame {
+
     public static void main(String[] args) {
         //TESTING-TESTING-TESTING
         Board board = new Board();
         board.initBoard();
-        board.playerMove(0, 0);
-        board.changePlayer();
+        board.nextMove(2, 2);
+        System.out.println(board.isWinner());
+        board.nextMove(1, 1);
+        System.out.println(board.isWinner());
+        board.changeMark();
+        board.nextMove(2, 0);
+        System.out.println(board.isWinner());
         board.printBoard();
-        board.playerMove(1, 1);
-        board.changePlayer();
-        board.printBoard();
-        
+
         System.out.println("");
-        
-        Board board2 = new Board(9);
+
+        Board board2 = new Board(4);
         board2.initBoard();
         board2.printBoard();
     }

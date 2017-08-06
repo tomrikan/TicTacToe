@@ -35,7 +35,7 @@ public class BoardTest {
     @Before
     public void setUp() {
         board = new Board();
-        board2 = new Board(9);
+        board2 = new Board(4);
     }
 
     @After
@@ -44,12 +44,14 @@ public class BoardTest {
 
     @Test
     public void constructorSetsBoardSizeRight() {
-        assertEquals(3, board.getBoardSize());
-        assertEquals(9, board2.getBoardSize());
+        assertEquals(3, board.getBoard().length);
+        assertEquals(4, board2.getBoard().length);
     }
 
     @Test
     public void initializingBoardCorrect() {
-        
+        board.initBoard();
+        char[][] testTable = {{'-','-','-'},{'-','-','-'},{'-','-','-'}};
+        assertArrayEquals(testTable,board.getBoard());
     }
 }
