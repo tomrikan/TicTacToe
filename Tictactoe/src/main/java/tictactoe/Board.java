@@ -43,9 +43,12 @@ public class Board {
         }
     }
 
-    //For testing the constructors.
     public char[][] getBoard() {
         return this.board;
+    }
+
+    public char getMark() {
+        return this.mark;
     }
 
     public void initBoard() {
@@ -151,7 +154,7 @@ public class Board {
         }
         if (board[0][board.length - 1] != '-') {
             for (int i = 1; i < board.length; i++) {
-                if (board[i][board.length-1-i] != ch) {
+                if (board[i][board.length - 1 - i] != ch) {
                     break;
                 }
                 if (i == board.length - 1) {

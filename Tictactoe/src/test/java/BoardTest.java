@@ -51,7 +51,78 @@ public class BoardTest {
     @Test
     public void initializingBoardCorrect() {
         board.initBoard();
-        char[][] testTable = {{'-','-','-'},{'-','-','-'},{'-','-','-'}};
-        assertArrayEquals(testTable,board.getBoard());
+        char[][] testTable = {{'-', '-', '-'}, {'-', '-', '-'}, {'-', '-', '-'}};
+        assertArrayEquals(testTable, board.getBoard());
     }
+
+    @Test
+    public void initializingBoardForCustomSizeCorrect() {
+        board2.initBoard();
+        char[][] testTable = {{'-', '-', '-', '-'}, {'-', '-', '-', '-'},
+        {'-', '-', '-', '-'}, {'-', '-', '-', '-'},};
+        assertArrayEquals(testTable, board2.getBoard());
+    }
+
+    @Test
+    public void fullBoardReturnsTrue() {
+        board.initBoard();
+        for (int i = 0; i < board.getBoard().length; i++) {
+            for (int j = 0; j < board.getBoard().length; j++) {
+                board.nextMove(i, j);
+            }
+        }
+        assertEquals(true, board.isBoardFull());
+    }
+
+    @Test
+    public void emptyBoardReturnsFalse() {
+        board.initBoard();
+        assertEquals(false, board.isBoardFull());
+    }
+
+    @Test
+    public void nonFullBoardReturnsFalse() {
+        board.initBoard();
+        board.nextMove(0, 0);
+        assertEquals(false, board.isBoardFull());
+
+        for (int i = 0; i < board.getBoard().length; i++) {
+            for (int j = 0; j < board.getBoard().length - 1; j++) {
+                board.nextMove(i, j);
+            }
+        }
+        assertEquals(false, board.isBoardFull());
+    }
+
+    @Test
+    public void playerMarkXInBeginning() {
+        char mark = 'X';
+        assertEquals(mark, board.getMark());
+    }
+
+    @Test
+    public void markChangesCorrectly() {
+        board.changeMark();
+        assertEquals('O', board.getMark());
+
+        board.changeMark();
+        assertEquals('X', board.getMark());
+    }
+
+    @Test
+    public void nextMoveReturnsFalseIfWrongMove() {
+        board.initBoard();
+        assertEquals(false, board.nextMove(3, 0));
+
+        assertEquals(false, board.nextMove(0, 3));
+    }
+
+    @Test
+    public void nextMoveReturnsTrueIfCorrectMove() {
+        board.initBoard();
+        assertEquals(true, board.nextMove(0, 0));
+
+        assertEquals(true, board.nextMove(2, 2));
+    }
+
 }
