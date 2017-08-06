@@ -6,3 +6,5 @@
   * Pelin aloittaminen
   * Pelin lopettaminen
   * Pelimoden valinta (jos aika riittää toteuttamaan cpu:ta vastaan pelaamisen)
+
+![Alustava luokkakaavio](/home/tomi/Pictures/EkaLuokkakaavio.jpg)
