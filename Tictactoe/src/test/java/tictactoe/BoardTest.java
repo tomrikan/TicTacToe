@@ -115,7 +115,6 @@ public class BoardTest {
     public void nextMoveReturnsFalseIfWrongMove() {
         board.initBoard();
         assertEquals(false, board.nextMove(3, 0));
-
         assertEquals(false, board.nextMove(0, 3));
     }
 
@@ -123,8 +122,43 @@ public class BoardTest {
     public void nextMoveReturnsTrueIfCorrectMove() {
         board.initBoard();
         assertEquals(true, board.nextMove(0, 0));
-
         assertEquals(true, board.nextMove(2, 2));
     }
-
+    
+    @Test
+    public void isWinnerReturnsTrueIfRowWin() {
+        board.initBoard();
+        board.nextMove(0, 0);
+        board.nextMove(0, 1);
+        board.nextMove(0, 2);
+        assertEquals(true, board.isWinner());
+    }
+    
+    @Test
+    public void isWinnerReturnsTrueIfColWin() {
+        board.initBoard();
+        board.nextMove(0, 0);
+        board.nextMove(1, 0);
+        board.nextMove(2, 0);
+        assertEquals(true, board.isWinner());
+    }
+    
+    @Test
+    public void isWinnerReturnsTrueIfDiagWin() {
+        board.initBoard();
+        board.nextMove(0, 0);
+        board.nextMove(1, 1);
+        board.nextMove(2, 2);
+        assertEquals(true, board.isWinner());
+    }
+    
+    @Test
+    public void isWinnerReturnsFalseIfNoWin() {
+        board.initBoard();
+        board.nextMove(0, 0);
+        board.nextMove(0, 1);
+        board.nextMove(1, 0);
+        board.nextMove(1, 1);
+        assertEquals(false, board.isWinner());
+    }
 }

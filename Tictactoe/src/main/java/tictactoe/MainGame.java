@@ -20,7 +20,7 @@ public class MainGame {
         System.out.println("TIC-TAC-TOE");
 
         while (choice < 1 || choice > 3) {
-            System.out.println("Choose 1 for normal size board, 2 for custom size, any other key for quit: ");
+            System.out.println("Choose 1 for normal size board, 2 for custom size, any other number for quit: ");
             choice = scanner.nextInt();
 
             if (choice == 1) {
@@ -93,6 +93,8 @@ public class MainGame {
             placeMove(board);
             board.changeMark();
         }
+        printBoard(board);
+        System.out.println("");
         System.out.println("Game has ended!");
     }
 }
