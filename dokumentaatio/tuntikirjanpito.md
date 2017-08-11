@@ -5,4 +5,5 @@ Päivä | Tunnit | Kuvaus
 04.08.2017 | 2h | Koodausta
 05.08.2017 | 2h | Koodausta
 06.08.2017 | 2h | Koodausta, testailua + dokumentaatio
+11.08.2017 | 5h | Koodausta, korjailua, lisää testejä, pit-raportti
 
