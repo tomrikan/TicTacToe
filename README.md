@@ -3,4 +3,4 @@ Ristinolla on kahden pelaajan peli, jossa pelaajat sijoittavat pelilaudalle vuor
 
 ## Dokumentaatio
 [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
-[Tuntikirjanpito](tuntikirjanpito.md)
+[Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
