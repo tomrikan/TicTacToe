@@ -180,6 +180,7 @@ public class Board {
             }
         }
         if (board[0][board.length - 1] != '-') {
+            ch = board[0][board.length - 1];
             for (int i = 1; i < board.length; i++) {
                 if (board[i][board.length - 1 - i] != ch) {
                     break;

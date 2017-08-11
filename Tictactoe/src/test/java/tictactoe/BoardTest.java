@@ -153,6 +153,15 @@ public class BoardTest {
     }
     
     @Test
+    public void isWinnerReturnsTrueIfOtherDiagonal() {
+        board.initBoard();
+        board.nextMove(0, 2);
+        board.nextMove(1, 1);
+        board.nextMove(2, 0);
+        assertEquals(true, board.isWinner());
+    }
+    
+    @Test
     public void isWinnerReturnsFalseIfNoWin() {
         board.initBoard();
         board.nextMove(0, 0);

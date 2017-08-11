@@ -73,7 +73,6 @@ public class MainGame {
             row = scanner.nextInt();
             System.out.println("Enter column: ");
             col = scanner.nextInt();
-
             if (board.nextMove(row, col)) {
                 bl = true;
             }
