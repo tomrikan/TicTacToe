@@ -21,21 +21,26 @@ public class MainGame {
 
         while (choice < 1 || choice > 3) {
             System.out.println("Choose 1 for normal size board, 2 for custom size, any other number for quit: ");
-            choice = scanner.nextInt();
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
 
-            if (choice == 1) {
-                Board board = new Board();
-                board.initBoard();
-                gameLoop(board);
+                if (choice == 1) {
+                    Board board = new Board();
+                    board.initBoard();
+                    gameLoop(board);
 
-            } else if (choice == 2) {
-                System.out.println("Give size: ");
-                int size = scanner.nextInt();
-                Board board = new Board(size);
-                board.initBoard();
-                gameLoop(board);
+                } else if (choice == 2) {
+                    System.out.println("Give size: ");
+                    int size = scanner.nextInt();
+                    Board board = new Board(size);
+                    board.initBoard();
+                    gameLoop(board);
+                } else {
+                    break;
+                }
             } else {
-                break;
+                scanner.nextLine();
+                System.out.println("Enter valid numeric value");
             }
         }
 
