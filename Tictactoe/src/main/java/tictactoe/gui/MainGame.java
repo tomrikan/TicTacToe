@@ -7,6 +7,7 @@ package tictactoe.gui;
 
 import tictactoe.logic.Board;
 import java.util.Scanner;
+import tictactoe.logic.WinnerChecker;
 
 /**
  *
@@ -16,10 +17,12 @@ public class MainGame {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int choice = -1;
-
+        WinnerChecker wc = new WinnerChecker();
+        
         System.out.println("TIC-TAC-TOE");
-
+        
+        int choice = -1;
+        
         while (choice < 1 || choice > 3) {
             System.out.println("Choose 1 for normal size board, 2 for custom size, any other number for quit: ");
             if (scanner.hasNextInt()) {
@@ -28,14 +31,14 @@ public class MainGame {
                 if (choice == 1) {
                     Board board = new Board();
                     board.initBoard();
-                    gameLoop(board);
+                    gameLoop(board, wc);
 
                 } else if (choice == 2) {
                     System.out.println("Give size: ");
                     int size = scanner.nextInt();
                     Board board = new Board(size);
                     board.initBoard();
-                    gameLoop(board);
+                    gameLoop(board, wc);
                 } else {
                     break;
                 }
@@ -100,10 +103,11 @@ public class MainGame {
     /**
      * Create basic game loop.
      *
-     * @param board
+     * @param board as game board.
+     * @param wc as winnerchecker.
      */
-    public static void gameLoop(Board board) {
-        while (!board.isBoardFull() && !board.isWinner()) {
+    public static void gameLoop(Board board, WinnerChecker wc) {
+        while (!board.isBoardFull() && !wc.isWinner(board)) {
 
             printBoard(board);
             System.out.println("Player " + board.getMark() + " turn");
