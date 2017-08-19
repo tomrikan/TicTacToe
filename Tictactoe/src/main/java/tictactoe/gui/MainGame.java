@@ -84,6 +84,7 @@ public class MainGame {
             row = scanner.nextInt();
 
             System.out.println("Enter column: ");
+            //printing twice for some reason when input is string.
             while (!scanner.hasNextInt()) {
                 System.out.println("Enter valid integer.");
                 scanner.nextLine();
