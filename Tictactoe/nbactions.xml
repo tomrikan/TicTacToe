@@ -17,7 +17,7 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
             </goals>
             <properties>
-                <exec.args>-classpath %classpath tictactoe.MainGame</exec.args>
+                <exec.args>-classpath %classpath tictactoe.gui.MainGame</exec.args>
                 <exec.executable>java</exec.executable>
             </properties>
         </action>

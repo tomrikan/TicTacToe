@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tictactoe;
+package tictactoe.logic;
 
 /**
  * Class for board logic.
@@ -31,18 +31,10 @@ public class Board {
         this.mark = 'X';
     }
     
-    /**
-     * Getter for board.
-     * @return board.
-     */
     public char[][] getBoard() {
         return this.board;
     }
     
-    /**
-     * Returns current playing mark.
-     * @return mark
-     */
     public char getMark() {
         return this.mark;
     }
@@ -111,10 +103,6 @@ public class Board {
         return (checkRows() || checkColumns() || checkDiagonals());
     }
     
-    /**
-     * Checks the rows for win. Used by method isWinner().
-     * @return true if winning row found, false if not.
-     */
     private boolean checkRows() {
         char ch = 'y';
 
@@ -136,10 +124,6 @@ public class Board {
         return false;
     }
     
-    /**
-     * Checks columns for win. Used by method isWinner().
-     * @return true if win, false if not.
-     */
     private boolean checkColumns() {
         char ch = 'y';
         //Iterate through the table column wise.
@@ -160,12 +144,8 @@ public class Board {
         return false;
     }
     
-    /**
-     * Checks diagonals for win. Both diagonals checked after each other.
-     * Used by method isWinner().
-     * @return true if win found, false if not.
-     */
     private boolean checkDiagonals() {
+        //iterate through both diagonals
         char ch = 'y';
         if (board[0][0] != '-') {
             ch = board[0][0];

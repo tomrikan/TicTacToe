@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tictactoe;
+package tictactoe.gui;
 
+import tictactoe.logic.Board;
 import java.util.Scanner;
 
 /**
@@ -68,16 +69,27 @@ public class MainGame {
     //TODO: replace with mouse listener/gui
     public static void placeMove(Board board) {
         Scanner scanner = new Scanner(System.in);
-        int row;
-        int col;
+        int row = -1;
+        int col = -1;
         boolean bl = false;
 
-        //prompt until legit move.
+        //prompt until legit move TODO: try and catch tjsp.
         while (!bl) {
+
             System.out.println("Enter row: ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Enter valid integer.");
+                scanner.nextLine();
+            }
             row = scanner.nextInt();
+
             System.out.println("Enter column: ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Enter valid integer.");
+                scanner.nextLine();
+            }
             col = scanner.nextInt();
+            
             if (board.nextMove(row, col)) {
                 bl = true;
             }
