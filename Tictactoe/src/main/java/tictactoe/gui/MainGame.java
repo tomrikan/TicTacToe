@@ -18,11 +18,11 @@ public class MainGame {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         WinnerChecker wc = new WinnerChecker();
-        
+
         System.out.println("TIC-TAC-TOE");
-        
+
         int choice = -1;
-        
+
         while (choice < 1 || choice > 3) {
             System.out.println("Choose 1 for normal size board, 2 for custom size, any other number for quit: ");
             if (scanner.hasNextInt()) {
@@ -47,7 +47,6 @@ public class MainGame {
                 System.out.println("Enter valid numeric value");
             }
         }
-
     }
 
     //TODO: implement this with GUI
@@ -93,7 +92,7 @@ public class MainGame {
                 scanner.nextLine();
             }
             col = scanner.nextInt();
-            
+
             if (board.nextMove(row, col)) {
                 bl = true;
             }
