@@ -5,7 +5,6 @@ package tictactoe.logic;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -124,5 +123,4 @@ public class BoardTest {
         assertEquals(true, board.nextMove(0, 0));
         assertEquals(true, board.nextMove(2, 2));
     }
-    
 }

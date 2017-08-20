@@ -7,13 +7,14 @@ package tictactoe.logic;
 
 /**
  * Class for board logic.
+ *
  * @author tomi
  */
 public class Board {
 
     private char[][] board;
     private char mark;
-    
+
     /**
      * Normal constructor.
      */
@@ -21,24 +22,25 @@ public class Board {
         this.board = new char[3][3];
         this.mark = 'X';
     }
-    
+
     /**
      * Constructor for customized size.
+     *
      * @param size board's size.
      */
     public Board(int size) {
         this.board = new char[size][size];
         this.mark = 'X';
     }
-    
+
     public char[][] getBoard() {
         return this.board;
     }
-    
+
     public char getMark() {
         return this.mark;
     }
-    
+
     /**
      * Initializes the board.
      */
@@ -49,9 +51,10 @@ public class Board {
             }
         }
     }
-    
+
     /**
      * Checks whether board is full or not.
+     *
      * @return isFull
      */
     public boolean isBoardFull() {
@@ -66,9 +69,10 @@ public class Board {
         }
         return isFull;
     }
-    
+
     /**
      * Check that proposed move is correct and if so place it on the board.
+     *
      * @param row
      * @param col
      * @return true if move correct, false if not.
@@ -83,7 +87,7 @@ public class Board {
         }
         return false;
     }
-    
+
     /**
      * Changes the current playing mark.
      */
@@ -94,5 +98,4 @@ public class Board {
             this.mark = 'X';
         }
     }
-    
 }

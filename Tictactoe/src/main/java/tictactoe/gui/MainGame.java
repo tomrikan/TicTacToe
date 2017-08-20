@@ -49,7 +49,7 @@ public class MainGame {
         }
     }
 
-    //TODO: implement this with GUI
+    //TODO: implement with GUI
     public static void printBoard(Board board) {
         for (int i = 0; i < board.getBoard().length * 4 + 1; i++) {
             System.out.print("-");

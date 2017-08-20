@@ -17,29 +17,29 @@ import static org.junit.Assert.*;
  * @author tomi
  */
 public class WinnerCheckerTest {
-    
+
     Board board;
     Board board2;
     WinnerChecker wc;
-    
+
     public WinnerCheckerTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         board = new Board();
         board2 = new Board(4);
         wc = new WinnerChecker();
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -52,7 +52,7 @@ public class WinnerCheckerTest {
         board.nextMove(0, 2);
         assertEquals(true, wc.isWinner(board));
     }
-    
+
     @Test
     public void isWinnerReturnsTrueIfColWin() {
         board.initBoard();
@@ -61,7 +61,7 @@ public class WinnerCheckerTest {
         board.nextMove(2, 0);
         assertEquals(true, wc.isWinner(board));
     }
-    
+
     @Test
     public void isWinnerReturnsTrueIfDiagWin() {
         board.initBoard();
@@ -70,7 +70,7 @@ public class WinnerCheckerTest {
         board.nextMove(2, 2);
         assertEquals(true, wc.isWinner(board));
     }
-    
+
     @Test
     public void isWinnerReturnsTrueIfOtherDiagonal() {
         board.initBoard();
@@ -79,7 +79,7 @@ public class WinnerCheckerTest {
         board.nextMove(2, 0);
         assertEquals(true, wc.isWinner(board));
     }
-    
+
     @Test
     public void isWinnerReturnsFalseIfNoWin() {
         board.initBoard();
