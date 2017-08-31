@@ -10,7 +10,7 @@ import java.util.Scanner;
 import tictactoe.logic.WinnerChecker;
 
 /**
- *
+ * Contains Gui and gameloop.
  * @author tomi
  */
 public class MainGame {
@@ -20,25 +20,18 @@ public class MainGame {
         WinnerChecker wc = new WinnerChecker();
 
         System.out.println("TIC-TAC-TOE");
-
         int choice = -1;
 
-        while (choice < 1 || choice > 3) {
-            System.out.println("Choose 1 for normal size board, 2 for custom size, any other number for quit: ");
+        while (choice < 3 || choice > 9) {
+            System.out.println("Choose board size. Min 3, max 9. Any other number for quit: ");
             if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
-
-                if (choice == 1) {
-                    Board board = new Board();
+                
+                if (choice > 2 && choice < 10) {
+                    Board board = new Board(choice);
                     board.initBoard();
                     gameLoop(board, wc);
-
-                } else if (choice == 2) {
-                    System.out.println("Give size: ");
-                    int size = scanner.nextInt();
-                    Board board = new Board(size);
-                    board.initBoard();
-                    gameLoop(board, wc);
+                    break;
                 } else {
                     break;
                 }

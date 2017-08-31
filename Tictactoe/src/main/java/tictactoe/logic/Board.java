@@ -55,7 +55,7 @@ public class Board {
     /**
      * Checks whether board is full or not.
      *
-     * @return isFull
+     * @return true if board is full, false if not.
      */
     public boolean isBoardFull() {
         boolean isFull = true;
@@ -73,8 +73,8 @@ public class Board {
     /**
      * Check that proposed move is correct and if so place it on the board.
      *
-     * @param row
-     * @param col
+     * @param row row to place mark.
+     * @param col column to place mark.
      * @return true if move correct, false if not.
      */
     public boolean nextMove(int row, int col) {
