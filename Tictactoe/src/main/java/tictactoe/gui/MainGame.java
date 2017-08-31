@@ -9,13 +9,41 @@ import tictactoe.logic.Board;
 import java.util.Scanner;
 import tictactoe.logic.WinnerChecker;
 
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.FlowPane;
+import javafx.stage.Stage;
+
+import javafx.application.Application;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+
 /**
  * Contains Gui and gameloop.
+ *
  * @author tomi
  */
-public class MainGame {
+public class MainGame extends Application {
+
+    private Board board;
+    private WinnerChecker wc;
 
     public static void main(String[] args) {
+
+        launch(MainGame.class);
+
         Scanner scanner = new Scanner(System.in);
         WinnerChecker wc = new WinnerChecker();
 
@@ -26,7 +54,7 @@ public class MainGame {
             System.out.println("Choose board size. Min 3, max 9. Any other number for quit: ");
             if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
-                
+
                 if (choice > 2 && choice < 10) {
                     Board board = new Board(choice);
                     board.initBoard();
@@ -109,5 +137,54 @@ public class MainGame {
         printBoard(board);
         System.out.println("");
         System.out.println("Game has ended!");
+    }
+
+    @Override
+    public void start(Stage window) {
+        Label whoseTurn = new Label("Player: ");
+        GridPane grid = new GridPane();
+
+        VBox asettelu = new VBox();
+        asettelu.setSpacing(10);
+        int size;
+
+        for (int i = 3; i < 10; i++) {
+            Button button = new Button(Integer.toString(i));
+            button.setOnAction((ActionEvent event) -> {
+
+            });
+        }
+
+        Scene nakyma = new Scene(asettelu);
+
+        window.setScene(nakyma);
+        window.show();
+
+        for (int x = 0; x < 3; x++) {
+            for (int y = 0; y < 3; y++) {
+                grid.add(button(whoseTurn), x, y);
+            }
+        }
+
+        BorderPane comps = new BorderPane();
+        comps.setTop(whoseTurn);
+        comps.setCenter(grid);
+
+        Scene view = new Scene(comps);
+
+        window.setScene(view);
+        window.show();
+    }
+
+    public Button button(Label teksti) {
+        Button nappi = new Button(" ");
+        nappi.setFont(Font.font("Monospaced", 40));
+
+        nappi.setOnAction((event) -> {
+            String vuoroNyt = "X";
+            nappi.setText(vuoroNyt);
+            teksti.setText("Player: " + vuoroNyt);
+        });
+        return nappi;
     }
 }
