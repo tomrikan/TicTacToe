@@ -159,8 +159,8 @@ public class MainGame extends Application {
 
         button.setOnAction((event) -> {
 
-            String blaa = giveSize.getText();
-            int size = Integer.parseInt(blaa);
+            String text = giveSize.getText();
+            int size = Integer.parseInt(text);
 
             this.board.setSize(size);
             this.board.initBoard();
@@ -179,7 +179,6 @@ public class MainGame extends Application {
 
             window.setScene(view);
             window.show();
-
         });
     }
 
@@ -206,7 +205,6 @@ public class MainGame extends Application {
                     text.setText(board.getMark() + " won!");
                 }
             }
-
         });
         return nappi;
     }
