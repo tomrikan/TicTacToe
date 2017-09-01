@@ -146,11 +146,12 @@ public class MainGame extends Application {
         GridPane grid = new GridPane();
         TextField giveSize = new TextField();
         Label givSais = new Label("Give size (from 3 to 9): ");
+        Label warning = new Label();
         Button button = new Button("Ok");
 
         VBox asettelu = new VBox();
         asettelu.setSpacing(10);
-        asettelu.getChildren().addAll(givSais, giveSize, button);
+        asettelu.getChildren().addAll(givSais, giveSize, button, warning);
 
         Scene nakyma = new Scene(asettelu);
 
@@ -158,27 +159,36 @@ public class MainGame extends Application {
         window.show();
 
         button.setOnAction((event) -> {
-
+            int size;
             String text = giveSize.getText();
-            int size = Integer.parseInt(text);
 
-            this.board.setSize(size);
-            this.board.initBoard();
-
-            BorderPane comps = new BorderPane();
-            comps.setTop(whoseTurn);
-            comps.setCenter(grid);
-
-            for (int x = 0; x < size; x++) {
-                for (int y = 0; y < size; y++) {
-                    grid.add(button(whoseTurn, x, y), x, y);
-                }
+            try {
+                size = Integer.parseInt(text);
+            } catch (NumberFormatException e) {
+                warning.setText("Wrong input.");
+                size = 0;
             }
+            if (size > 2 && size < 10) {
+                this.board.setSize(size);
+                this.board.initBoard();
 
-            Scene view = new Scene(comps);
+                BorderPane comps = new BorderPane();
+                comps.setTop(whoseTurn);
+                comps.setCenter(grid);
 
-            window.setScene(view);
-            window.show();
+                for (int x = 0; x < size; x++) {
+                    for (int y = 0; y < size; y++) {
+                        grid.add(button(whoseTurn, x, y), x, y);
+                    }
+                }
+
+                Scene view = new Scene(comps);
+
+                window.setScene(view);
+                window.show();
+            } else {
+                warning.setText("Wrong input.");
+            }
         });
     }
 
