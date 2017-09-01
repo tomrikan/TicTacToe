@@ -94,6 +94,7 @@ public class Board {
         }
         return false;
     }
+    
 
     /**
      * Changes the current playing mark.

@@ -163,6 +163,7 @@ public class MainGame extends Application {
             int size = Integer.parseInt(blaa);
 
             this.board.setSize(size);
+            this.board.initBoard();
 
             BorderPane comps = new BorderPane();
             comps.setTop(whoseTurn);
@@ -170,7 +171,7 @@ public class MainGame extends Application {
 
             for (int x = 0; x < size; x++) {
                 for (int y = 0; y < size; y++) {
-                    grid.add(button(whoseTurn), x, y);
+                    grid.add(button(whoseTurn, x, y), x, y);
                 }
             }
 
@@ -182,16 +183,26 @@ public class MainGame extends Application {
         });
     }
 
-    public Button button(Label text) {
+    public Button button(Label text, int x, int y) {
+        
         Button nappi = new Button(" ");
         nappi.setFont(Font.font("Monospaced", 40));
 
         nappi.setOnAction((event) -> {
 
-            String mark = Character.toString(board.getMark());
-            nappi.setText(mark);
-            board.changeMark();
-            text.setText("Player: " + board.getMark());
+            if (board.nextMove(x, y)) {
+                String mark = Character.toString(board.getMark());
+                nappi.setText(mark);
+                board.changeMark();
+                text.setText("Player: " + board.getMark());
+            }
+            
+            if (board.isBoardFull()) {
+                text.setText("It's a tie!");
+            }
+            if (board.checkWin()) {
+                text.setText("Someone won!");
+            }
 
         });
         return nappi;
