@@ -46,7 +46,7 @@ public class MainGame extends Application {
 
         Scanner scanner = new Scanner(System.in);
         WinnerChecker wc = new WinnerChecker();
-
+        /*
         System.out.println("TIC-TAC-TOE");
         int choice = -1;
 
@@ -67,7 +67,7 @@ public class MainGame extends Application {
                 scanner.nextLine();
                 System.out.println("Enter valid numeric value");
             }
-        }
+        }*/
     }
 
     //TODO: implement with GUI
@@ -143,37 +143,39 @@ public class MainGame extends Application {
     public void start(Stage window) {
         Label whoseTurn = new Label("Player: ");
         GridPane grid = new GridPane();
+        TextField giveSize = new TextField();
+        Label givSais = new Label("Give size (from 3 to 9): ");
+        Button button = new Button("Ok");
 
         VBox asettelu = new VBox();
         asettelu.setSpacing(10);
-        int size;
-
-        for (int i = 3; i < 10; i++) {
-            Button button = new Button(Integer.toString(i));
-            button.setOnAction((ActionEvent event) -> {
-
-            });
-        }
-
+        asettelu.getChildren().addAll(givSais, giveSize, button);
+        
         Scene nakyma = new Scene(asettelu);
 
         window.setScene(nakyma);
         window.show();
 
-        for (int x = 0; x < 3; x++) {
-            for (int y = 0; y < 3; y++) {
-                grid.add(button(whoseTurn), x, y);
+        button.setOnAction((event) -> {
+            String blaa = giveSize.getText();
+            int size = Integer.parseInt(blaa);
+
+            BorderPane comps = new BorderPane();
+            comps.setTop(whoseTurn);
+            comps.setCenter(grid);
+            
+            for (int x = 0; x < size; x++) {
+                for (int y = 0; y < size; y++) {
+                    grid.add(button(whoseTurn), x, y);
+                }
             }
-        }
+            
+            Scene view = new Scene(comps);
 
-        BorderPane comps = new BorderPane();
-        comps.setTop(whoseTurn);
-        comps.setCenter(grid);
+            window.setScene(view);
+            window.show();
 
-        Scene view = new Scene(comps);
-
-        window.setScene(view);
-        window.show();
+        }); 
     }
 
     public Button button(Label text) {
