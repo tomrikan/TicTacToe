@@ -184,24 +184,30 @@ public class MainGame extends Application {
     }
 
     public Button button(Label text, int x, int y) {
-        
+
         Button nappi = new Button(" ");
         nappi.setFont(Font.font("Monospaced", 40));
 
         nappi.setOnAction((event) -> {
 
-            if (board.nextMove(x, y)) {
-                String mark = Character.toString(board.getMark());
-                nappi.setText(mark);
-                board.changeMark();
-                text.setText("Player: " + board.getMark());
+            if (!board.isBoardFull() && !board.checkWin()) {
+
+                if (board.nextMove(x, y)) {
+                    String mark = Character.toString(board.getMark());
+                    nappi.setText(mark);
+                    board.changeMark();
+                    text.setText("Player: " + board.getMark());
+                }
             }
-            
+
             if (board.isBoardFull()) {
                 text.setText("It's a tie!");
+
             }
             if (board.checkWin()) {
-                text.setText("Someone won!");
+                board.changeMark();
+                text.setText(board.getMark() + " won!");
+
             }
 
         });
