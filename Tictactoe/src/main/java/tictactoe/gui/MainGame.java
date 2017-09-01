@@ -176,14 +176,14 @@ public class MainGame extends Application {
         window.show();
     }
 
-    public Button button(Label teksti) {
+    public Button button(Label text) {
         Button nappi = new Button(" ");
         nappi.setFont(Font.font("Monospaced", 40));
 
         nappi.setOnAction((event) -> {
-            String vuoroNyt = "X";
-            nappi.setText(vuoroNyt);
-            teksti.setText("Player: " + vuoroNyt);
+            String mark = "X";
+            nappi.setText(mark);
+            text.setText("Player: " + mark);
         });
         return nappi;
     }
