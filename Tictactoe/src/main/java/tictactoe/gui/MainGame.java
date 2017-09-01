@@ -198,16 +198,13 @@ public class MainGame extends Application {
                     board.changeMark();
                     text.setText("Player: " + board.getMark());
                 }
-            }
-
-            if (board.isBoardFull()) {
-                text.setText("It's a tie!");
-
-            }
-            if (board.checkWin()) {
-                board.changeMark();
-                text.setText(board.getMark() + " won!");
-
+                if (board.isBoardFull()) {
+                    text.setText("It's a tie!");
+                }
+                if (board.checkWin()) {
+                    board.changeMark();
+                    text.setText(board.getMark() + " won!");
+                }
             }
 
         });
