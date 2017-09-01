@@ -38,15 +38,16 @@ import javafx.stage.Stage;
 public class MainGame extends Application {
 
     private Board board;
-    private WinnerChecker wc;
+    //private WinnerChecker wc;
 
     public static void main(String[] args) {
 
         launch(MainGame.class);
 
+        /*
         Scanner scanner = new Scanner(System.in);
         WinnerChecker wc = new WinnerChecker();
-        /*
+        
         System.out.println("TIC-TAC-TOE");
         int choice = -1;
 
@@ -70,7 +71,7 @@ public class MainGame extends Application {
         }*/
     }
 
-    //TODO: implement with GUI
+    /*
     public static void printBoard(Board board) {
         for (int i = 0; i < board.getBoard().length * 4 + 1; i++) {
             System.out.print("-");
@@ -87,9 +88,9 @@ public class MainGame extends Application {
             }
             System.out.println("");
         }
-    }
+    }*/
 
-    //TODO: replace with mouse listener/gui
+ /*
     public static void placeMove(Board board) {
         Scanner scanner = new Scanner(System.in);
         int row = -1;
@@ -118,14 +119,14 @@ public class MainGame extends Application {
                 bl = true;
             }
         }
-    }
-
+    }*/
     /**
      * Create basic game loop.
      *
      * @param board as game board.
      * @param wc as winnerchecker.
      */
+    /*
     public static void gameLoop(Board board, WinnerChecker wc) {
         while (!board.isBoardFull() && !wc.isWinner(board)) {
 
@@ -137,11 +138,11 @@ public class MainGame extends Application {
         printBoard(board);
         System.out.println("");
         System.out.println("Game has ended!");
-    }
-
+    }*/
     @Override
     public void start(Stage window) {
-        Label whoseTurn = new Label("Player: ");
+        this.board = new Board();
+        Label whoseTurn = new Label("Player: " + board.getMark());
         GridPane grid = new GridPane();
         TextField giveSize = new TextField();
         Label givSais = new Label("Give size (from 3 to 9): ");
@@ -150,32 +151,35 @@ public class MainGame extends Application {
         VBox asettelu = new VBox();
         asettelu.setSpacing(10);
         asettelu.getChildren().addAll(givSais, giveSize, button);
-        
+
         Scene nakyma = new Scene(asettelu);
 
         window.setScene(nakyma);
         window.show();
 
         button.setOnAction((event) -> {
+
             String blaa = giveSize.getText();
             int size = Integer.parseInt(blaa);
+
+            this.board.setSize(size);
 
             BorderPane comps = new BorderPane();
             comps.setTop(whoseTurn);
             comps.setCenter(grid);
-            
+
             for (int x = 0; x < size; x++) {
                 for (int y = 0; y < size; y++) {
                     grid.add(button(whoseTurn), x, y);
                 }
             }
-            
+
             Scene view = new Scene(comps);
 
             window.setScene(view);
             window.show();
 
-        }); 
+        });
     }
 
     public Button button(Label text) {
@@ -183,9 +187,12 @@ public class MainGame extends Application {
         nappi.setFont(Font.font("Monospaced", 40));
 
         nappi.setOnAction((event) -> {
-            String mark = "X";
+
+            String mark = Character.toString(board.getMark());
             nappi.setText(mark);
-            text.setText("Player: " + mark);
+            board.changeMark();
+            text.setText("Player: " + board.getMark());
+
         });
         return nappi;
     }

@@ -14,6 +14,7 @@ public class Board {
 
     private char[][] board;
     private char mark;
+    private WinnerChecker wc;
 
     /**
      * Normal constructor.
@@ -21,6 +22,11 @@ public class Board {
     public Board() {
         this.board = new char[3][3];
         this.mark = 'X';
+        this.wc = new WinnerChecker();
+    }
+    
+    public void setSize(int size) {
+        this.board = new char[size][size];
     }
 
     /**
@@ -31,6 +37,7 @@ public class Board {
     public Board(int size) {
         this.board = new char[size][size];
         this.mark = 'X';
+        this.wc = new WinnerChecker();
     }
 
     public char[][] getBoard() {
@@ -97,5 +104,9 @@ public class Board {
         } else {
             this.mark = 'X';
         }
+    }
+    
+    public boolean checkWin() {
+        return wc.isWinner(this);
     }
 }
