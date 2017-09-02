@@ -45,101 +45,8 @@ public class MainGame extends Application {
 
         launch(MainGame.class);
 
-        /*
-        Scanner scanner = new Scanner(System.in);
-        WinnerChecker wc = new WinnerChecker();
-        
-        System.out.println("TIC-TAC-TOE");
-        int choice = -1;
-
-        while (choice < 3 || choice > 9) {
-            System.out.println("Choose board size. Min 3, max 9. Any other number for quit: ");
-            if (scanner.hasNextInt()) {
-                choice = scanner.nextInt();
-
-                if (choice > 2 && choice < 10) {
-                    Board board = new Board(choice);
-                    board.initBoard();
-                    gameLoop(board, wc);
-                    break;
-                } else {
-                    break;
-                }
-            } else {
-                scanner.nextLine();
-                System.out.println("Enter valid numeric value");
-            }
-        }*/
     }
 
-    /*
-    public static void printBoard(Board board) {
-        for (int i = 0; i < board.getBoard().length * 4 + 1; i++) {
-            System.out.print("-");
-        }
-        System.out.println("");
-        for (int row = 0; row < board.getBoard().length; row++) {
-            System.out.print("| ");
-            for (int col = 0; col < board.getBoard().length; col++) {
-                System.out.print(board.getBoard()[row][col] + " | ");
-            }
-            System.out.println("");
-            for (int j = 0; j < board.getBoard().length * 4 + 1; j++) {
-                System.out.print("-");
-            }
-            System.out.println("");
-        }
-    }*/
-
- /*
-    public static void placeMove(Board board) {
-        Scanner scanner = new Scanner(System.in);
-        int row = -1;
-        int col = -1;
-        boolean bl = false;
-
-        //prompt until legit move TODO: try and catch tjsp.
-        while (!bl) {
-
-            System.out.println("Enter row: ");
-            while (!scanner.hasNextInt()) {
-                System.out.println("Enter valid integer.");
-                scanner.nextLine();
-            }
-            row = scanner.nextInt();
-
-            System.out.println("Enter column: ");
-            //printing twice for some reason when input is string.
-            while (!scanner.hasNextInt()) {
-                System.out.println("Enter valid integer.");
-                scanner.nextLine();
-            }
-            col = scanner.nextInt();
-
-            if (board.nextMove(row, col)) {
-                bl = true;
-            }
-        }
-    }*/
-    /**
-     * Create basic game loop.
-     *
-     * @param board as game board.
-     * @param wc as winnerchecker.
-     */
-    /*
-    public static void gameLoop(Board board, WinnerChecker wc) {
-        while (!board.isBoardFull() && !wc.isWinner(board)) {
-
-            printBoard(board);
-            System.out.println("Player " + board.getMark() + " turn");
-            placeMove(board);
-            board.changeMark();
-        }
-        printBoard(board);
-        System.out.println("");
-        System.out.println("Game has ended!");
-    }*/
     @Override
     public void start(Stage window) {
         this.board = new Board();
@@ -221,7 +128,7 @@ public class MainGame extends Application {
             } else if (choice == 2) {
                 this.board.initBoard();
                 AiPlayer ai = new AiPlayer();
-                
+
                 GridPane grid = new GridPane();
                 Label whoseTurn = new Label("Player: " + board.getMark());
                 BorderPane comps = new BorderPane();
@@ -237,7 +144,6 @@ public class MainGame extends Application {
                 window.setTitle("Tic-Tac-Toe");
                 window.setScene(view);
                 window.show();
-                
 
             } else {
                 warningOne.setText("Wrong input.");
@@ -250,7 +156,6 @@ public class MainGame extends Application {
 
         Button nappi = new Button(" ");
         nappi.setFont(Font.font("Monospaced", 40));
-        
 
         nappi.setOnAction((event) -> {
             //works but ai's move not displayed on gui, only in logic.
@@ -260,16 +165,15 @@ public class MainGame extends Application {
                     nappi.setText(mark);
                     board.changeMark();
                     text.setText("Player: " + board.getMark());
-                    
+
                     //ai move done in logic.
-                    int [] move = ai.move(board);
+                    int[] move = ai.move(board);
                     int row = move[0];
                     int col = move[1];
-                    
-                    
+
                     board.changeMark();
                     text.setText("Player: " + board.getMark());
-                    
+
                 }
                 if (board.isBoardFull()) {
                     text.setText("It's a tie!");
