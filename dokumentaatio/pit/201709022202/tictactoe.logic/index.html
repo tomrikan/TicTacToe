@@ -39,7 +39,7 @@
    .coverage_ledgend {
         position : absolute;
         height : 100%;
-        width : 100%;
+        width: 100%;
         left : 0;
         top : 0;
         text-align : center;
@@ -50,9 +50,9 @@
    }
    
    .coveragePercentage {
-    display: inline-block;
-    width: 3em;
-    text-align: right;
+        display: inline-block;
+        width: 3em;
+        text-align: right;
    }
   </style>
   
@@ -60,8 +60,8 @@
 <body>
 
 <h1>Pit Test Coverage Report</h1>
-
-<h3>Project Summary</h3>
+<h2>Package Summary</h2>
+<h3>tictactoe.logic</h3>
 <table>
     <thead>
         <tr>
@@ -73,19 +73,18 @@
     <tbody>
         <tr>
             <td>2</td>
-            <td>31% <div class="coverage_bar"><div class="coverage_complete" style="width:31%"></div><div class="coverage_ledgend">29/93</div></div></td>
-            <td>26% <div class="coverage_bar"><div class="coverage_complete" style="width:26%"></div><div class="coverage_ledgend">28/108</div></div></td>
+            <td>95% <div class="coverage_bar"><div class="coverage_complete" style="width:95%"></div><div class="coverage_ledgend">69/73</div></div></td>
+            <td>92% <div class="coverage_bar"><div class="coverage_complete" style="width:92%"></div><div class="coverage_ledgend">72/78</div></div></td>
         </tr>
     </tbody>
 </table>
 
 
-<h3>Breakdown by Package</h3>
+<h3>Breakdown by Class</h3>
 <table>
     <thead>
         <tr>
             <th>Name</th>
-            <th>Number of Classes</th>
             <th>Line Coverage</th>
             <th>Mutation Coverage</th>
         </tr>
@@ -93,10 +92,15 @@
     <tbody>
 
         <tr>
-            <td><a href="./tictactoe/index.html">tictactoe</a></td>
-            <td>2</td>
-            <td><div class="coveragePercentage">31% </div><div class="coverage_bar"><div class="coverage_complete" style="width:31%"></div><div class="coverage_ledgend">29/93</div></div></td>
-            <td><div class="coveragePercentage">26% </div><div class="coverage_bar"><div class="coverage_complete" style="width:26%"></div><div class="coverage_ledgend">28/108</div></div></td>
+            <td><a href="./Board.java.html">Board.java</a></td>
+            <td><div class="coveragePercentage">91% </div><div class="coverage_bar"><div class="coverage_complete" style="width:91%"></div><div class="coverage_ledgend">31/34</div></div></td>
+            <td><div class="coveragePercentage">97% </div><div class="coverage_bar"><div class="coverage_complete" style="width:97%"></div><div class="coverage_ledgend">28/29</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./WinnerChecker.java.html">WinnerChecker.java</a></td>
+            <td><div class="coveragePercentage">97% </div><div class="coverage_bar"><div class="coverage_complete" style="width:97%"></div><div class="coverage_ledgend">38/39</div></div></td>
+            <td><div class="coveragePercentage">90% </div><div class="coverage_bar"><div class="coverage_complete" style="width:90%"></div><div class="coverage_ledgend">44/49</div></div></td>
         </tr>
 
      </tbody>
