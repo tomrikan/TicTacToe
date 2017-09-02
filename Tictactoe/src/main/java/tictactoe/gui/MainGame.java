@@ -32,21 +32,28 @@ import javafx.stage.Stage;
 import tictactoe.ai.AiPlayer;
 
 /**
- * Contains Gui and gameloop.
+ * Contains Gui and gameloop based on mouse clicks.
  *
  * @author tomi
  */
 public class MainGame extends Application {
 
     private Board board;
-    //private WinnerChecker wc;
-
+    
+    /**
+     * Launches GUI.
+     * @param args main method stuff.
+     */
     public static void main(String[] args) {
 
         launch(MainGame.class);
 
     }
-
+    
+    /**
+     * Create GUI.
+     * @param window stage's window.
+     */
     @Override
     public void start(Stage window) {
         this.board = new Board();
@@ -151,7 +158,15 @@ public class MainGame extends Application {
         });
 
     }
-
+    
+    /**
+     * Create buttons for ai game.
+     * @param text whose turn.
+     * @param x button's row.
+     * @param y button's column.
+     * @param ai cpu.
+     * @return button.
+     */
     public Button aiButton(Label text, int x, int y, AiPlayer ai) {
 
         Button nappi = new Button(" ");
@@ -186,7 +201,14 @@ public class MainGame extends Application {
 
         return nappi;
     }
-
+    
+    /**
+     * Buttons for player vs player mode.
+     * @param text whose turn.
+     * @param x button's row.
+     * @param y button's column.
+     * @return button.
+     */
     public Button button(Label text, int x, int y) {
 
         Button nappi = new Button(" ");

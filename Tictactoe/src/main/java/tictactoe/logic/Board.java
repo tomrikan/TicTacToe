@@ -107,6 +107,10 @@ public class Board {
         }
     }
     
+    /**
+     * Check for win using class' winchecker functions.
+     * @return true if win found, false if not.
+     */
     public boolean checkWin() {
         return wc.isWinner(this);
     }

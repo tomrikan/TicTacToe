@@ -17,7 +17,7 @@ public class AiPlayer {
     private int[][] preferredMoves;
 
     /**
-     * Constructor
+     * Constructor.
      * @param board game board. 
      */
     public AiPlayer() {

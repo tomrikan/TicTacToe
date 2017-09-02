@@ -10,7 +10,10 @@ package tictactoe.logic;
  * @author tomi
  */
 public class WinnerChecker {
-
+    
+    /**
+     * Empty constructor.
+     */
     public WinnerChecker() {
     }
     
