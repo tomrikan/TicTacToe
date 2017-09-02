@@ -275,7 +275,7 @@ public class MainGame extends Application {
                     text.setText("It's a tie!");
                 }
                 if (board.checkWin()) {
-                    text.setText(board.getMark() + " won!");
+                    text.setText("Game has ended!");
                 }
             }
         });
