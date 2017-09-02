@@ -11,3 +11,9 @@
 **Luokkakaavio:**
 
 ![Luokkakaavio](/kuvat/EkaLuokkakaavio.jpg)
+
+**Sekvenssikaaviot:**
+
+![SekvenssiYks](/kuvat/SekvenssiYks.jpg)
+
+![SekvenssiKaks](/kuvat/SekvenssiKaks.jpg)
