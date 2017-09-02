@@ -8,4 +8,6 @@
   * Pelimoden valinta
   * Peliclickit
 
+**Luokkakaavio:**
+
 ![Luokkakaavio](/kuvat/EkaLuokkakaavio.jpg)
