@@ -146,7 +146,7 @@ public class MainGame extends Application {
 
         VBox gameMode = new VBox();
         Label modeOne = new Label("1. Player VS Player");
-        Label modeTwo = new Label("2. Plr VS AI on 3x3 board");
+        Label modeTwo = new Label("2. Plr VS CPU on 3x3 board");
         TextField chooseMode = new TextField();
         Button modeButton = new Button("Ok");
         Label warningOne = new Label();
@@ -237,6 +237,7 @@ public class MainGame extends Application {
                 window.setTitle("Tic-Tac-Toe");
                 window.setScene(view);
                 window.show();
+                
 
             } else {
                 warningOne.setText("Wrong input.");
@@ -249,24 +250,31 @@ public class MainGame extends Application {
 
         Button nappi = new Button(" ");
         nappi.setFont(Font.font("Monospaced", 40));
+        
 
         nappi.setOnAction((event) -> {
+            //works but ai's move not displayed on gui, only in logic.
             if (!board.isBoardFull() && !board.checkWin()) {
                 if (board.nextMove(x, y)) {
                     String mark = Character.toString(board.getMark());
                     nappi.setText(mark);
                     board.changeMark();
                     text.setText("Player: " + board.getMark());
+                    
+                    //ai move done in logic.
                     int [] move = ai.move(board);
                     int row = move[0];
                     int col = move[1];
+                    
+                    
+                    board.changeMark();
+                    text.setText("Player: " + board.getMark());
                     
                 }
                 if (board.isBoardFull()) {
                     text.setText("It's a tie!");
                 }
                 if (board.checkWin()) {
-                    board.changeMark();
                     text.setText(board.getMark() + " won!");
                 }
             }

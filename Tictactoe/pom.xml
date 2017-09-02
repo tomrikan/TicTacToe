@@ -37,9 +37,11 @@
                 <configuration>
                     <targetClasses>
                         <param>tictactoe.logic.*</param>
+                        <param>tictactoe.ai.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>tictactoe.logic.*</param>
+                        <param>tictactoe.ai.*</param>
                     </targetTests>
                 </configuration>
             </plugin>

@@ -25,9 +25,9 @@ public class AiPlayer {
     }
     
     /**
-     * Super simple quick solution for ai move. Get move based on
-     * simple priority.
-     * @return move as int[].
+     * Super simple quick solution for ai move to get ai started. Get move based on
+     * simple priority. First center followed by corners and sides.
+     * @return move as array of coordinates.
      */
     public int[] move(Board board) {
         for (int[] move : preferredMoves) {
