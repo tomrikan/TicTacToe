@@ -9,3 +9,4 @@ Päivä | Tunnit | Kuvaus
 13.08.2017 | 1h | Koodin viimeistely palautukseen, pit-linkki
 01.09.2017 | 3h | gui
 02.09.2017 | 2h | "ai" + gui
+02.09.2017 | 1h | dokumentaatio

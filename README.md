@@ -3,6 +3,7 @@ Ristinolla on kahden pelaajan peli, jossa pelaajat sijoittavat pelilaudalle vuor
 
 ## Dokumentaatio
 [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
-[Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
-[Pit-raportti](https://htmlpreview.github.io/?https://raw.githubusercontent.com/tomrikan/TicTacToe/master/dokumentaatio/pit/201708111507/tictactoe/index.html)
 
+[Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
+
+[Pit-raportti](https://htmlpreview.github.io/?https://raw.githubusercontent.com/tomrikan/TicTacToe/master/dokumentaatio/pit/201708111507/tictactoe/index.html)
