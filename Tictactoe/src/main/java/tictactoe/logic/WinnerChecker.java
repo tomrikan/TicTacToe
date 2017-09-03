@@ -7,19 +7,21 @@ package tictactoe.logic;
 
 /**
  * Class for checking for possible win on the board.
+ *
  * @author tomi
  */
 public class WinnerChecker {
-    
+
     /**
      * Empty constructor.
      */
     public WinnerChecker() {
     }
-    
+
     /**
      * Check if the board contains win. Uses sub methods for row-, column- and
      * diagonal wise checking.
+     *
      * @param board as game board.
      * @return true if win found, otherwise false.
      */

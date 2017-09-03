@@ -9,6 +9,7 @@ import tictactoe.logic.Board;
 
 /**
  * Class for ai functions.
+ *
  * @author tomi
  */
 public class AiPlayer {
@@ -18,15 +19,17 @@ public class AiPlayer {
 
     /**
      * Constructor.
-     * @param board game board. 
+     *
+     * @param board game board.
      */
     public AiPlayer() {
         this.preferredMoves = new int[][]{{1, 1}, {0, 0}, {0, 2}, {2, 0}, {2, 2}, {0, 1}, {1, 0}, {1, 2}, {2, 1}};
     }
-    
+
     /**
-     * Super simple quick solution for ai move to get ai started. Get move based on
-     * simple priority. First center followed by corners and sides.
+     * Super simple quick solution for ai move to get ai started. Get move based
+     * on simple priority. First center followed by corners and sides.
+     *
      * @return move as array of coordinates.
      */
     public int[] move(Board board) {

@@ -24,7 +24,7 @@ public class Board {
         this.mark = 'X';
         this.wc = new WinnerChecker();
     }
-    
+
     public void setSize(int size) {
         this.board = new char[size][size];
     }
@@ -94,7 +94,6 @@ public class Board {
         }
         return false;
     }
-    
 
     /**
      * Changes the current playing mark.
@@ -106,9 +105,10 @@ public class Board {
             this.mark = 'X';
         }
     }
-    
+
     /**
      * Check for win using class' winchecker functions.
+     *
      * @return true if win found, false if not.
      */
     public boolean checkWin() {
