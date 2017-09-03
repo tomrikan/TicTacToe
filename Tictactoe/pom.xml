@@ -63,7 +63,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>tictactoe.gui.MainGame</mainClass>
+                                    <mainClass>tictactoe.gui.Start</mainClass>
                                     <!-- mainClass on muotoa "fi.omanimi.superprojekti.Main" -->
                                 </transformer>
                             </transformers>

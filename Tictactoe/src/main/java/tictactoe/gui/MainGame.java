@@ -35,9 +35,8 @@ public class MainGame extends Application {
     /**
      * Launches GUI.
      *
-     * @param args main method stuff.
      */
-    public static void main(String[] args) {
+    public void startGame() {
         launch(MainGame.class);
     }
 
@@ -49,7 +48,6 @@ public class MainGame extends Application {
     @Override
     public void start(Stage window) {
         this.board = new Board();
-        
         VBox gameMode = new VBox();
         Label modeOne = new Label("1. Player VS Player");
         Label modeTwo = new Label("2. P1 VS LOL-AI");
