@@ -10,3 +10,4 @@ Päivä | Tunnit | Kuvaus
 01.09.2017 | 3h | gui
 02.09.2017 | 2h | "ai" + gui
 02.09.2017 | 1h | dokumentaatio
+03.09.2017 | 3h | gui:n viimeistely ja kaikki lopputoimenpiteet
