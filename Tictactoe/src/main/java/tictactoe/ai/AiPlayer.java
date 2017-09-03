@@ -29,7 +29,7 @@ public class AiPlayer {
     /**
      * Super simple quick solution for ai move to get ai started. Get move based
      * on simple priority. First center followed by corners and sides.
-     *
+     * @param board as game board. 
      * @return move as array of coordinates.
      */
     public int[] move(Board board) {
