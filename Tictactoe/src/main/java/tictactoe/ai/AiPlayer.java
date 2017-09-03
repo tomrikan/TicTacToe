@@ -19,8 +19,6 @@ public class AiPlayer {
 
     /**
      * Constructor.
-     *
-     * @param board game board.
      */
     public AiPlayer() {
         this.preferredMoves = new int[][]{{1, 1}, {0, 0}, {0, 2}, {2, 0}, {2, 2}, {0, 1}, {1, 0}, {1, 2}, {2, 1}};
